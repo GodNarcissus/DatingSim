@@ -187,7 +187,7 @@ def call_uber():
                 time.sleep(s)
                 print("if you have any questions, want to see all the apps on your phone, or just want to talk")
                 time.sleep(s)
-                print("just say, 'hey simi' (without quotes).")
+                print("just say, \x1b[3;37;40mhey simi\x1b[0m.")
                 time.sleep(s)
                 print("if you're not sure what to do, you can always look around or talk to me for help.")
                 discover()
@@ -241,22 +241,22 @@ def approach(place):
     print('\x1b[1;37;40m' + f"Hi, I'm {myself.name}." + '\x1b[0m')
     time.sleep(s)
     if place == "corner":
-        if myself.location == "Tutorial":
+        if myself.location == "tutorial":
             print('\x1b[5;35;40m' + f"Hi! My name is Colette." + '\x1b[0m')
         else:
             print("you can't go there from here.")
     elif place == "tennis court":
-        if myself.location == "Joe Collins Park":
+        if myself.location == "joecollinspark":
             print('\x1b[5;31;40m' + "Uh, hi. I'm Abby." + '\x1b[0m')
         else:
             print("you can't go there from here.")
     elif place == "volleyball net":
-        if myself.location == "Joe Collins Park":
+        if myself.location == "joecollinspark":
             print('\x1b[5;32;40m' + "Hey, I'm Paul." + '\x1b[0m')
         else:
             print("you can't go there from here.")
     elif place == "cash register":
-        if myself.location == "Dairy Queen":
+        if myself.location == "dairyqueen":
             print('\x1b[5;33;40m' + "Hi, I'm Shane." + '\x1b[0m')
         else:
             print("you can't go there from here.")
@@ -609,7 +609,7 @@ def talkto(character):
                     print('\x1b[5;35;40m' + "To look at the locations you can visit in the game, check out the map." +'\x1b[0m')
                     time.sleep(s)
                     print('\x1b[5;35;40m' + "Just say whatever app you want to use, the phone is voice activated." +'\x1b[0m')
-                    print("say 'map' without the quotes")
+                    print("say \x1b[3;37;40mmap\x1b[0m.")
                     while True:
                         #forces player to test map command
                         a=input(">>> ").lower()
@@ -625,7 +625,7 @@ def talkto(character):
                     time.sleep(s)
                     print('\x1b[5;35;40m' + "You can see your friends in your contacts list. Try it now." +'\x1b[0m')
                     time.sleep(1)
-                    print("say 'contacts' without the quotes")
+                    print("say \x1b[3;37;40mcontacts\x1b[0m.")
                     while True:
                         #forces player to test contacts command
                         a=input(">>> ").lower()
@@ -660,7 +660,7 @@ def talkto(character):
                     time.sleep(s)
                     print('\x1b[5;35;40m' + "You can call your Uber now to take a look at the park." +'\x1b[0m')
                     time.sleep(s)
-                    print("say 'call Uber' without the quotes.")
+                    print("say \x1b[3;37;40mcall Uber\x1b[0m.")
                     while True:
                         #forces player to leave and call an Uber
                         a=input(">>> ").lower()
@@ -1076,7 +1076,7 @@ def talkto(character):
                         inventory['dollars'] += 5
                         print("$5 have been added to you wallet!")
                         time.sleep(s)
-                        print("say 'wallet' (without quotes) to see what's in your inventory.")
+                        print("say \x1b[3;37;40mwallet\x1b[0m to see what's in your inventory.")
                         break
                     elif r == "2":
                         print('\x1b[1;37;40m' + "Nice serves." + '\x1b[0m')
@@ -1125,7 +1125,7 @@ print('\x1b[5;35;40m' + "I'm the tutorial lady, and I'll be teaching you the bas
 time.sleep(s)
 print('\x1b[5;35;40m' + "Now, can you tell me your name?" + '\x1b[0m')
 time.sleep(s)
-myself.name = input(">>> ")
+myself.name = input("\n>>> ")
 #the player can choose their name
 time.sleep(1)
 while True:
@@ -1178,7 +1178,7 @@ print('\x1b[5;35;40m' + f"Here, pretend like I didn't already say hi. How would 
 time.sleep(1)
 print("when talking to someone for the first time, you need to approach & introduce yourself.")
 time.sleep(1)
-print("say 'go to corner' (without quotes) to walk up to the girl in the corner.")
+print("say \x1b[3;37;40mgo to corner\x1b[0m to walk up to the girl in the corner.")
 time.sleep(1)
 while True:
     a = input(">>> ").lower()
@@ -1188,7 +1188,7 @@ while True:
 time.sleep(s)
 print("any word that is underlined is a location you can approach.")
 time.sleep(1)
-print("if you want to learn more about your surroundings or get a refresher on what can be found there, say 'look around' (without quotes)")
+print("if you want to learn more about your surroundings or get a refresher on what can be found there, say \x1b[3;37;40mlook around\x1b[0m.")
 time.sleep(2)
 while True:
     a = input(">>> ").lower()
@@ -1197,7 +1197,7 @@ while True:
         break
 print("now that you know her name, you can greet her and begin a conversation.")
 time.sleep(1)
-print("say 'hey colette' (without quotes) to greet Colette.")
+print("say \x1b[3;37;40mhey Colette\x1b[0m to greet Colette.")
 #a system message to be more direct
 time.sleep(1)
 while True:
@@ -1218,7 +1218,7 @@ if colette in enemies:
     print('\x1b[1;37;40m' + "I should call an Uber to pick me up." + '\x1b[0m')
     time.sleep(s)
     map["joecollinspark"] = "Joe Collins Park"
-    print("say 'call Uber' (without quotes).")
+    print("say \x1b[3;37;40mcall Uber\x1b[0m.")
     while True:
         a = input(">>> ").lower()
         if a == "call uber":
