@@ -15,7 +15,7 @@ heart = []
 map = {"tutorial" : "Tutorial"}
 #will represent the player's accessable areas
 
-discovered = ["Tutorial"]
+discovered = ["tutorial"]
 #will represent the player's visited locations
 
 enemies = []
@@ -72,7 +72,7 @@ def options():
     elif a == "hey simi":
         talkto(simi)
         #opens phone
-    elif a == "hey myself":
+    elif a == "hey myself" or a == "hi myself":
         talkto(myself)
         #talk to yourself
     elif a == "hey jeremy":
@@ -152,9 +152,22 @@ def contacts():
 def call_uber():
     print("calling your Uber driver...")
     time.sleep(2)
-    print('\x1b[0;30;47m' + f"What's up, {myself.name}? Where you wanna go?" + '\x1b[0m')
-    time.sleep(s)
-    print('\x1b[0;30;47m' + "Just tell me where." + '\x1b[0m')
+    if jeremy in acquaintances:
+        print('\x1b[0;30;47m' + f"What's up, {myself.name}? Where you wanna go?" + '\x1b[0m')
+        time.sleep(s)
+        print('\x1b[0;30;47m' + "Just tell me where." + '\x1b[0m')
+    elif jeremy in friends:
+        print('\x1b[0;30;47m' + f"What's up, {myself.name}? Where you wanna go?" + '\x1b[0m')
+        time.sleep(s)
+        print('\x1b[0;30;47m' + "I'll take you anywhere you need." + '\x1b[0m')
+    elif jeremy in enemies:
+        print('\x1b[0;30;47m' + "Oh it's you." + '\x1b[0m')
+        time.sleep(s)
+        print('\x1b[0;30;47m' + "Let's get this over with." + '\x1b[0m')
+    else:
+        print('\x1b[0;30;47m' + "What's up? I'm Jeremy, your Uber driver." + '\x1b[0m')
+        time.sleep(s)
+        print('\x1b[0;30;47m' + "Where you wanna go?" + '\x1b[0m')
     time.sleep(s)
     while True:
         gps()
@@ -176,7 +189,7 @@ def call_uber():
             simi.location=d
             print('\x1b[0;30;47m' + "Aight we here now. I'll be waiting here if you need me." + '\x1b[0m')
             time.sleep(1)
-            print(f"you are now at '{myself.location}.'")
+            print(f"you are now at {map[d]}.")
             if "joecollinspark" not in discovered:
                 #automatic encounter directly after tutorial
                 print("by the way, I'm Simi, the AI in your phone.")
@@ -379,9 +392,11 @@ def talkto(character):
         #begins talking to yourself
         elif character == myself:
             if myself in friends:
+                time.sleep(s)
                 print('\x1b[1;37;40m' + "Stop talking to yourself and make some actual friends!" + '\x1b[0m')
             else:
                 while True:
+                    time.sleep(s)
                     r = input("""\x1b[1;37;40mHey me!\x1b[0m
     1. Compliment
     2. Insult
@@ -411,6 +426,9 @@ def talkto(character):
                         break
                     elif r == "3":
                         print("\x1b[1;37;40mBye!\x1b[0m")
+                        break
+                    else:
+                        print("\x1b[1;37;40mWhat am I even saying?\x1b[0m")
         #begins Colette's speech tree
         elif character == colette:
             if colette in friends:
