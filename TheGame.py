@@ -75,34 +75,34 @@ def options():
     elif a == "hey myself" or a == "hi myself":
         talkto(myself)
         #talk to yourself
-    elif a == "hey jeremy":
+    elif a == "hey jeremy" or a == "hi jeremy":
         talkto(jeremy)
     elif a == "call uber":
         call_uber()
         #talks to Uber driver
-    elif a == "hey colette":
+    elif a == "hey colette" or a == "hi colette":
         talkto(colette)
         #talk to tutorial lady
     elif a == "go to tennis court":
         approach("tennis court")
         #learns the skater's name
-    elif a == "hey abby":
+    elif a == "hey abby" or a == "hi abby":
         talkto(abby)
         #talks to the skater
     elif a == "go to volleyball net":
         approach("volleyball net")
         #learns the volleyball player's name
-    elif a == "hey paul":
+    elif a == "hey paul" or a == "hi paul":
         talkto(paul)
         #talks to volleyball player
     elif a == "go to cash register":
         approach("cash register")
         #learns the cashier's name
-    elif a == "hey shane":
+    elif a == "hey shane" or a == "hi shane":
         talkto(shane)
         #talks to the cashier
     else:
-        print("invalid")
+        print("invalid input")
 
 #will show what's in the player's inventory
 def wallet():
@@ -114,11 +114,11 @@ def dead():
     while "major depression" in heart:
         a = input(">>> ").lower()
         if a == "i am god":
-            print("oh yeah that's right, you can't die.")
+            print("oh yeah that's right, you can never feel depressed.")
             time.sleep(s)
             print("my bad.")
             time.sleep(s)
-            print("you are now alive again (I guess?).")
+            print("you are now happy again (I guess?).")
             #secret code that lets you come back to life and overcome depression
             heart.remove("major depression")
             break
@@ -634,7 +634,7 @@ def talkto(character):
                         if a == "map":
                             gps()
                             break
-                        elif a == "hey colette":
+                        elif a == "hey colette" or a == "hi colette":
                             print('\x1b[5;35;40m' + "Go ahead, look at the map on the phone I just gave you." +'\x1b[0m')
                     time.sleep(1)
                     print('\x1b[5;35;40m' + "Now, the goal of this game is to make as many friends as possible." +'\x1b[0m')
@@ -650,7 +650,7 @@ def talkto(character):
                         if a == "contacts":
                             contacts()
                             break
-                        elif a == "hey colette":
+                        elif a == "hey colette" or a == "hi colette":
                             print('\x1b[5;35;40m' + "Check out your contacts." +'\x1b[0m')
                     time.sleep(1)
                     print('\x1b[5;35;40m' + "Oh right, I just gave you the phone so you won't have any numbers yet." +'\x1b[0m')
@@ -685,7 +685,7 @@ def talkto(character):
                         if a == "call uber":
                             call_uber()
                             break
-                        elif a == "hey colette":
+                        elif a == "hey colette" or a == "hi colette":
                             print('\x1b[5;35;40m' + "Call your Uber now." +'\x1b[0m')
         elif character == simi:
             while True:
@@ -1216,11 +1216,13 @@ while True:
 print("now that you know her name, you can greet her and begin a conversation.")
 time.sleep(1)
 print("say \x1b[3;37;40mhey Colette\x1b[0m to greet Colette.")
+time.sleep(1)
+print("(other greetings besides \x1b[3;37;40mhey\x1b[0m might work. feel free to try some others.)")
 #a system message to be more direct
 time.sleep(1)
 while True:
     a=input(">>> ").lower()
-    if a == "hey colette":
+    if a == "hey colette" or a == "hi colette":
         talkto(colette)
         break
 if colette in enemies:
