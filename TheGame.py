@@ -56,7 +56,7 @@ simi = Character("Simi", myself.location)
 
 #basically what the player can do in any location after the tutorial
 def options():
-    a = input(">>> ").lower()
+    a = input('\x1b[0;30;47m>>>\x1b[0m ').lower()
     for x in greetings:
         if a == f"{x} simi":
             talkto(simi)
@@ -205,6 +205,8 @@ def call_uber():
                 print("just say, \x1b[3;37;40mhey simi\x1b[0m.")
                 time.sleep(s)
                 print("if you're not sure what to do, you can always look around or talk to me for help.")
+                time.sleep(s)
+                print("you're in free roam mode now, indicated by the inversed colored \x1b[3;37;40m>>>\x1b[0m.")
                 discover()
             elif myself.location not in discovered:
                 #keeps track of visited areas and prevents automatic encounters from happening again
@@ -477,10 +479,10 @@ def talkto(character):
                 #the player can respond to a person's question by typing in the number corresponding to their desired answer
                 while True:
                     r = input("""\x1b[5;35;40mAnyways, below is a dialogue branch. Type in the number corresponding the response you'd like to give to my statement.\x1b[0m
-    1. Yes
-    2. No
-    3. Uncertain
-    4. Be rude
+    1. So, like this, right?
+    2. I don't really want to.
+    3. I'm not too sure how to do this
+    4. I don't need this stupid tutorial. I know how to talk to people.
 
 >>> """)
                     if r == "1":
@@ -494,7 +496,7 @@ def talkto(character):
                         print('\x1b[5;35;40m' + "Well even if you didn't, you responded just now." + '\x1b[0m')
                         break
                     elif r == "3":
-                        print('\x1b[1;37;40m' + "I'm not too sure how to do this" + '\x1b[0m')
+                        print('\x1b[1;37;40m' + "I'm not too sure how to do this." + '\x1b[0m')
                         time.sleep(s)
                         print('\x1b[5;35;40m' + "It's alright! You did it just now. Isn't it easy?" + '\x1b[0m')
                         break
@@ -512,8 +514,8 @@ def talkto(character):
                         time.sleep(s)
                         while colette in enemies:
                             r = input("""Colette storms off and leaves you alone in the Tutorial room. what would you like to do?
-    1. Go into the dating simulator without her help.
-    2. Try to win back her forgiveness.
+    1. Finally, let's start the game already.
+    2. I better go apologize, what I said was wrong.
 
 >>> """)
                             if r == "2":
@@ -524,8 +526,8 @@ def talkto(character):
                                 while True:
                                     time.sleep(s)
                                     r = input("""She seems really hurt. What will you do?
-    \x1b[1;31;40m1. Apologize\x1b[0m
-    2. Give up
+    \x1b[1;31;40m1. Hey Colette, I'm really sorry.\x1b[0m
+    2. Yeah, I don't care anymore. I'm out.
 
 >>> """)
                                     if r == "1":
@@ -562,11 +564,13 @@ def talkto(character):
                 time.sleep(s)
                 while colette not in enemies:
                     #continues conversation as long as player didn't roast colette
-                    r = input("""\x1b[5;35;40mBelow is a speech check. The 3 colors represent the success chance you have of passing it. Try your luck right now.\x1b[0m
-    \x1b[1;32;40m1. Easy\x1b[0m
-    \x1b[1;33;40m2. Medium\x1b[0m
-    \x1b[1;31;40m3. Hard\x1b[0m
-    4. Don't like chance
+                    print("\x1b[5;35;40mBelow is a speech check. The 3 colors represent the success chance you have of passing it.\x1b[0m")
+                    time.sleep(s)
+                    r = input("""\x1b[5;35;40mHow charismatic do you think you are?\x1b[0m
+    \x1b[1;32;40m1. I wouldn't say I'm very charismatic, but I think I can talk just fine.\x1b[0m
+    \x1b[1;33;40m2. I'm pretty charismatic, I'd say.\x1b[0m
+    \x1b[1;31;40m3. I'm an amazing speaker, I can make friends with no problem.\x1b[0m
+    4. I don't know; charisma isn't really my specialty.
 
 >>> """)
                     time.sleep(s)
@@ -587,14 +591,14 @@ def talkto(character):
                         break
                     elif r == "2":
                         #medium choices are yellow
-                        print('\x1b[1;37;40m' + "I think I can talk to people just fine." + '\x1b[0m')
+                        print('\x1b[1;37;40m' + "I'm pretty charismatic, I'd say." + '\x1b[0m')
                         time.sleep(s)
                         k=random.randint(1,2)
                         if k == 1:
                             print('\x1b[5;35;40m' + "Uhh... think again. You might need to work on that." + '\x1b[0m')
                             time.sleep(s)
                         else:
-                            print('\x1b[5;35;40m' + "You certainly can! I think you'll be able to make friends pretty easily." + '\x1b[0m')
+                            print('\x1b[5;35;40m' + "You certainly are! I think you'll be able to make friends pretty easily." + '\x1b[0m')
                             time.sleep(s)
                         break
                     elif r == "3":
@@ -696,9 +700,9 @@ def talkto(character):
             while True:
                 time.sleep(1)
                 a = input(f"""hi {myself.name}, what do you need?
-    1. Apps
-    2. Talk
-    3. Help
+    1. What are some of the commands or apps I can say?
+    2. I just wanted to talk to you.
+    3. I need some help.
     4. Nevermind
 
 >>> """)
@@ -718,9 +722,9 @@ def talkto(character):
                     while True:
                         time.sleep(s)
                         r = input("""about what?
-    1. Weather
-    2. Contemplate Existence
-    3. Let's be Friends
+    1. What's the weather today?
+    2. Why are we on this earth?
+    3. Do you want to be friends, Simi?
     4. Nevermind
 
 >>> """)
@@ -749,8 +753,8 @@ def talkto(character):
                             if simi not in friends:
                                 while True:
                                     a = input("""really? do you mean it?
-\x1b[1;33;40m1. Yes\x1b[0m
-2. No
+\x1b[1;33;40m1. Yes! Of course.\x1b[0m
+2. No, I was just kidding!
 
     >>> """)
                                     if a == "1":
@@ -837,7 +841,7 @@ def talkto(character):
             elif abby in acquaintances:
                 while True:
                     r = input("""\x1b[5;31;40mDid you get Paul's number for me?\x1b[0m
-    1. Yes
+    1. Yeah I got the number right here.
     2. No
     3. Why?
 
@@ -856,9 +860,9 @@ def talkto(character):
                             break
                         else:
                             while True:
-                                r = input("""You obviously don't have Paul's number. What do you do?
-    1. Say you were kidding.
-    \x1b[1;31;40m2. Give a fake number.\x1b[0m
+                                r = input("""You obviously don't have Paul's number. What do you say?
+    1. Haha, just kidding!
+    \x1b[1;31;40m2. His number is...(give a fake number)\x1b[0m
 
 >>> """)
                                 if r == "1":
@@ -868,6 +872,11 @@ def talkto(character):
                                     break
                                 elif r == "2":
                                     print("you think of a random phone number off the top of your head and tell her.")
+                                    time.sleep(s)
+                                    n=random.randint(100,999)
+                                    m=random.randint(100,999)
+                                    l=random.randint(1000,9999)
+                                    print(f"\x1b[1;31;40m2. His number is ({n}) {m}-{l}.\x1b[0m")
                                     time.sleep(s)
                                     k=random.randint(1,4)
                                     if "self confidence" in inventory:
@@ -1118,12 +1127,12 @@ def talkto(character):
 
 while True:
     #s is the variable in most time.sleep() instances, whichever number the player chooses will set the game text speed
-    s = (input("""At what speed would you like the text to show?
+    s = input("""At what speed would you like the text to show?
     1. Normal
     2. Fast
     3. Super Fast (developer speed)
     (type in the number)
->>> """))
+>>> """)
     if s == "1":
         s = 2
         break
