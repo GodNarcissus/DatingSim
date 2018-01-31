@@ -5,6 +5,6 @@ Befriend any of the people you can find in the game (and in the finished product
 Do you have what it takes to win not only the game but also someone's heart?
 Take a shot at finding love in:
 
-A Text Based Dating Simulator
+Luna: A Text Based Dating Simulator
 
 (name is still in the works)
