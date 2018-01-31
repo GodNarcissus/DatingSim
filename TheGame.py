@@ -12,6 +12,9 @@ class Character(object):
 heart = []
 #the home of major depression if the player hates themself
 
+greetings = ["hi", "hey", "yo", "what's up", "hello", "hola", "what's good"]
+#list of ways the player can greet someone
+
 map = {"tutorial" : "Tutorial"}
 #will represent the player's accessable areas
 
@@ -54,6 +57,27 @@ simi = Character("Simi", myself.location)
 #basically what the player can do in any location after the tutorial
 def options():
     a = input(">>> ").lower()
+    for x in greetings:
+        if a == f"{x} simi":
+            talkto(simi)
+            #opens phone
+        elif a == f"{x} myself":
+            talkto(myself)
+            #talk to yourself
+        elif a == f"{x} jeremy":
+            talkto(jeremy)
+        elif a == f"{x} colette":
+            talkto(colette)
+            #talk to tutorial lady
+        elif a == f"{x} abby":
+            talkto(abby)
+            #talks to the skater
+        elif a == f"{x} paul":
+            talkto(paul)
+            #talks to volleyball player
+        elif a == f"{x} shane":
+            talkto(shane)
+            #talks to the cashier
     if a == "call uber":
         call_uber()
         #can travel to different locations
@@ -69,40 +93,18 @@ def options():
     elif a == "look around":
         observe()
         #gives a description of the area
-    elif a == "hey simi":
-        talkto(simi)
-        #opens phone
-    elif a == "hey myself" or a == "hi myself":
-        talkto(myself)
-        #talk to yourself
-    elif a == "hey jeremy" or a == "hi jeremy":
-        talkto(jeremy)
     elif a == "call uber":
         call_uber()
         #talks to Uber driver
-    elif a == "hey colette" or a == "hi colette":
-        talkto(colette)
-        #talk to tutorial lady
     elif a == "go to tennis court":
         approach("tennis court")
         #learns the skater's name
-    elif a == "hey abby" or a == "hi abby":
-        talkto(abby)
-        #talks to the skater
     elif a == "go to volleyball net":
         approach("volleyball net")
         #learns the volleyball player's name
-    elif a == "hey paul" or a == "hi paul":
-        talkto(paul)
-        #talks to volleyball player
     elif a == "go to cash register":
         approach("cash register")
         #learns the cashier's name
-    elif a == "hey shane" or a == "hi shane":
-        talkto(shane)
-        #talks to the cashier
-    else:
-        print("invalid input")
 
 #will show what's in the player's inventory
 def wallet():
@@ -631,11 +633,12 @@ def talkto(character):
                     while True:
                         #forces player to test map command
                         a=input(">>> ").lower()
+                        for x in greetings:
+                            if a == f"{x} colette":
+                                print('\x1b[5;35;40m' + "Go ahead, look at the map on the phone I just gave you." +'\x1b[0m')
                         if a == "map":
                             gps()
                             break
-                        elif a == "hey colette" or a == "hi colette":
-                            print('\x1b[5;35;40m' + "Go ahead, look at the map on the phone I just gave you." +'\x1b[0m')
                     time.sleep(1)
                     print('\x1b[5;35;40m' + "Now, the goal of this game is to make as many friends as possible." +'\x1b[0m')
                     time.sleep(s)
@@ -647,11 +650,12 @@ def talkto(character):
                     while True:
                         #forces player to test contacts command
                         a=input(">>> ").lower()
+                        for x in greetings:
+                            if a == f"{x} colette":
+                                print('\x1b[5;35;40m' + "Check out your contacts." +'\x1b[0m')
                         if a == "contacts":
                             contacts()
                             break
-                        elif a == "hey colette" or a == "hi colette":
-                            print('\x1b[5;35;40m' + "Check out your contacts." +'\x1b[0m')
                     time.sleep(1)
                     print('\x1b[5;35;40m' + "Oh right, I just gave you the phone so you won't have any numbers yet." +'\x1b[0m')
                     time.sleep(s)
@@ -682,11 +686,12 @@ def talkto(character):
                     while True:
                         #forces player to leave and call an Uber
                         a=input(">>> ").lower()
+                        for x in greetings:
+                            if a == f"{x} colette":
+                                print('\x1b[5;35;40m' + "Call your Uber now." +'\x1b[0m')
                         if a == "call uber":
                             call_uber()
                             break
-                        elif a == "hey colette" or a == "hi colette":
-                            print('\x1b[5;35;40m' + "Call your Uber now." +'\x1b[0m')
         elif character == simi:
             while True:
                 time.sleep(1)
@@ -1222,8 +1227,10 @@ print("(other greetings besides \x1b[3;37;40mhey\x1b[0m might work. feel free to
 time.sleep(1)
 while True:
     a=input(">>> ").lower()
-    if a == "hey colette" or a == "hi colette":
-        talkto(colette)
+    for x in greetings:
+        if a == f"{x} colette":
+            talkto(colette)
+    if colette in friends:
         break
 if colette in enemies:
     time.sleep(s)
