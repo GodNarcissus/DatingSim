@@ -78,7 +78,7 @@ def options():
         elif a == f"{x} shane":
             talkto(shane)
             #talks to the cashier
-    if a == "call uber":
+    if a == "call uber" or a == "call uber driver":
         call_uber()
         #can travel to different locations
     elif a == "wallet":
@@ -93,7 +93,7 @@ def options():
     elif a == "look around":
         observe()
         #gives a description of the area
-    elif a == "call uber":
+    elif a == "call uber" or a == "call uber driver":
         call_uber()
         #talks to Uber driver
     elif a == "go to tennis court":
@@ -689,7 +689,7 @@ def talkto(character):
                         for x in greetings:
                             if a == f"{x} colette":
                                 print('\x1b[5;35;40m' + "Call your Uber now." +'\x1b[0m')
-                        if a == "call uber":
+                        if a == "call uber" or a == "call uber driver":
                             call_uber()
                             break
         elif character == simi:
@@ -1248,7 +1248,7 @@ if colette in enemies:
     print("say \x1b[3;37;40mcall Uber\x1b[0m.")
     while True:
         a = input(">>> ").lower()
-        if a == "call uber":
+        if a == "call uber" or a == "call uber driver":
             call_uber()
             break
         else:
