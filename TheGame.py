@@ -61,7 +61,7 @@ def options():
         if a == f"{x} simi":
             talkto(simi)
             #opens phone
-        elif a == f"{x} myself":
+        elif a == f"{x} myself" or a == f"{x} me" or a == f"{x} {myself.name}":
             talkto(myself)
             #talk to yourself
         elif a == f"{x} jeremy":
