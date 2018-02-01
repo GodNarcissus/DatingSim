@@ -174,19 +174,19 @@ def call_uber():
             print(f"you are now at {map[d]}.")
             if "joecollinspark" not in discovered:
                 #automatic encounter directly after tutorial
-                print("by the way, I'm Simi, the AI in your phone.")
+                print("\x1b[1;37;40mby the way, I'm Simi, the AI in your phone.\x1b[0m")
                 time.sleep(s)
-                print("i normally reside in the Tutorial, but Colette put me in your phone so I could tag along.")
+                print("\x1b[1;37;40mi normally reside in the Tutorial, but Colette put me in your phone so I could tag along.\x1b[0m")
                 time.sleep(s)
-                print("think of me as the narrator, I'll always be with you.")
+                print("\x1b[1;37;40mthink of me as the narrator, I'll always be with you.\x1b[0m")
                 time.sleep(s)
-                print("if you have any questions, want to see all the apps on your phone, or just want to talk")
+                print("\x1b[1;37;40mif you have any questions, want to see all the apps on your phone, or just want to talk\x1b[0m")
                 time.sleep(s)
-                print("just say, \x1b[3;37;40mhey simi\x1b[0m.")
+                print("\x1b[1;37;40mjust say, \x1b[0m\x1b[3;37;40mhey simi\x1b[0m\x1b[1;37;40m.\x1b[0m")
                 time.sleep(s)
-                print("if you're not sure what to do, you can always look around or talk to me for help.")
+                print("\x1b[1;37;40mif you're not sure what to do, you can always look around or talk to me for help.\x1b[0m")
                 time.sleep(s)
-                print("you're in free roam mode now, indicated by the inversed colored \x1b[3;37;40m>>>\x1b[0m.")
+                print("\x1b[1;37;40myou're in free roam mode now, indicated by the inversed colored \x1b[0m\x1b[3;37;40m>>>\x1b[0m\x1b[1;37;40m.\x1b[0m")
                 discover()
             elif myself.location not in discovered:
                 #keeps track of visited areas and prevents automatic encounters from happening again
@@ -201,57 +201,59 @@ def call_uber():
 #gives a description of the place the player is in
 def observe():
     if myself.location == "joecollinspark":
-        print("the park is plenty busy today.")
+        print("The park is really busy today.")
         time.sleep(s)
-        print("however, two people specifically catch your attention.")
+        print("Two people specifically stand out.")
         time.sleep(s)
-        print("in the \x1b[4;37;40mtennis court\x1b[0m, instead of playing tennis, there's a girl skateboarding.")
+        print("In the \x1b[4;37;40mtennis court\x1b[0m, instead of playing tennis, there's a girl skateboarding.")
         time.sleep(s)
-        print("she seems to be struggling learning how to ollie.")
+        print("She seems to be struggling learning how to ollie.")
         time.sleep(s)
-        print("behind the fenced court, you see someone has set up a \x1b[4;37;40mvolleyball net\x1b[0m.")
+        print("Behind the fenced court,someone has set up a \x1b[4;37;40mvolleyball net\x1b[0m.")
         time.sleep(s)
-        print("he looks like he's practicing a jumping serve.")
+        print("He looks like he's practicing a jumping serve.")
     elif myself.location == "tutorial":
-        print("the room is well lit by hanging lightbulbs in the shape of wolf heads from the ceiling.")
+        print("The room is well lit by hanging lightbulbs in the shape of wolf heads from the ceiling.")
         time.sleep(s)
         print("Colette has an interesting taste in decorations.")
     elif myself.location == "dairyqueen":
-        print("the store is surprisingly empty.")
+        print("The store is surprisingly empty.")
         time.sleep(s)
-        print("the only person inside is a girl at the \x1b[4;37;40mcash register\x1b[0m.")
+        print("The only person inside is a girl at the \x1b[4;37;40mcash register\x1b[0m.")
     time.sleep(s)
 
 def win():
-    print("nice job! you've become friends with everyone in the game!")
+    print("\x1b[1;37;40mnice job! you've become friends with everyone in the game!\x1b[0m")
     time.sleep(s)
-    print("you can now call yourself an expert at making friends,")
+    print("\x1b[1;37;40myou can now call yourself an expert at making friends,\x1b[0m")
     time.sleep(s)
-    print("certified by this friendship simulator!")
+    print("\x1b[1;37;40mcertified by this friendship simulator!\x1b[0m")
     while True:
         a = input(">>> ")
         if a == "help":
-            print("you've won!")
+            print("\x1b[1;37;40myou've won!\x1b[0m")
+        else:
+            print("\x1b[1;37;40myou've won!\x1b[0m")
 
 #will be called when the player is depressed
 def dead():
     while "major depression" in heart:
         a = input(">>> ").lower()
         if a == "i am god":
-            print("oh yeah that's right, you can never feel depressed.")
+            print("\x1b[1;37;40moh yeah that's right, you can never feel depressed.\x1b[0m")
             time.sleep(s)
-            print("my bad.")
+            print("\x1b[1;37;40mmy bad.\x1b[0m")
             time.sleep(s)
-            print("you are now happy again (I guess?).")
+            print("\x1b[1;37;40myou are now happy again (I guess?).\x1b[0m")
             #secret code that lets you come back to life and overcome depression
             heart.remove("major depression")
             break
         else:
             k = random.randint(1,2)
             if k == 1:
-                print("you are way too sad to talk to anyone.")
+                print("\x1b[1;37;40myou are way too sad to talk to anyone.\x1b[0m")
             else:
-                print("if only there was something you could say to yourself to boost your confidence.")
+                print("\x1b[1;37;40mif only there was something you could say to yourself to boost your confidence.\x1b[0m")
 
 def apologize(character):
     if character == colette:
@@ -290,28 +292,28 @@ def apologize(character):
 
 #introduction dialogues, after going to where a person is, this will tell the player their names so they can talk to the characters
 def approach(place):
-    print('\x1b[1;37;40m' + f"Hi, I'm {myself.name}." + '\x1b[0m')
+    print(f"Hi, I'm {myself.name}.")
     time.sleep(s)
     if place == "corner":
         if myself.location == "tutorial":
             print('\x1b[5;35;40m' + f"Hi! My name is Colette." + '\x1b[0m')
         else:
-            print("you can't go there from here.")
+            print("\x1b[1;37;40myou can't go there from here.\x1b[0m")
     elif place == "tennis court":
         if myself.location == "joecollinspark":
             print('\x1b[5;31;40m' + "Uh, hi. I'm Abby." + '\x1b[0m')
         else:
-            print("you can't go there from here.")
+            print("\x1b[1;37;40myou can't go there from here.\x1b[0m")
     elif place == "volleyball net":
         if myself.location == "joecollinspark":
             print('\x1b[5;32;40m' + "Hey, I'm Paul." + '\x1b[0m')
         else:
-            print("you can't go there from here.")
+            print("\x1b[1;37;40myou can't go there from here.\x1b[0m")
     elif place == "cash register":
         if myself.location == "dairyqueen":
             print('\x1b[5;33;40m' + "Hi, I'm Shane." + '\x1b[0m')
         else:
-            print("you can't go there from here.")
+            print("\x1b[1;37;40myou can't go there from here.\x1b[0m")
 
 
 
