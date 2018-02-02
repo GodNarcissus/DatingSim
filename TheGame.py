@@ -255,6 +255,21 @@ def dead():
             else:
                 print("\x1b[1;37;40mif only there was something you could say to yourself to boost your confidence.\x1b[0m")
 
+def buy(product):
+    if product == "5bucklunch":
+        if inventory["dollars"] == 5:
+            print("Can I get a 5 Buck Lunch?")
+            time.sleep(s)
+            print("\x1b[1;37;40myou give Shane the $5\x1b[0m")
+            inventory["dollars"] -= 5
+            time.sleep(s)
+            print("\x1b[1;37;40myou now have a 5 buck lunch.\x1b[0m")
+            inventory["5 buck lunch"] = 1
+            time.sleep(s)
+            print("\x1b[5;33;40mHave a nice day!\x1b[0m")
+        else:
+            print("\x1b[5;33;40mI'm sorry, but you don't have enough money.\x1b[0m")
+
 def apologize(character):
     if character == colette:
         #if the player wants colette to forgive them, gives a different speech tree
@@ -332,22 +347,9 @@ def talkto(character):
 
 >>> """)
                     if r == "1":
-                        if inventory["dollars"] == 5:
-                            print("\x1b[1;37;40mCan I get a 5 Buck Lunch?\x1b[0m")
-                            time.sleep(s)
-                            print("you give Shane the $5")
-                            inventory["dollars"] -= 5
-                            time.sleep(s)
-                            print("you now have a 5 buck lunch.")
-                            inventory["5 buck lunch"] = 1
-                            time.sleep(s)
-                            print("\x1b[5;33;40mHave a nice day!\x1b[0m")
-                            break
-                        else:
-                            print("\x1b[5;33;40mI'm sorry, but you don't have enough money.\x1b[0m")
-                            break
+                        buy("5bucklunch")
                     elif r == "2":
-                        print("\x1b[1;37;40mNothing.\x1b[0m")
+                        print("Nothing.")
                         time.sleep(s)
                         print("\x1b[5;33;40mOkay, have a nice day!\x1b[0m")
                         break
@@ -362,22 +364,9 @@ def talkto(character):
 
 >>> """)
                     if r == "1":
-                        if inventory["dollars"] == 5:
-                            print("\x1b[1;37;40mCan I get a 5 Buck Lunch?\x1b[0m")
-                            time.sleep(s)
-                            print("you give Shane the $5")
-                            inventory["dollars"] -= 5
-                            time.sleep(s)
-                            print("you now have a 5 buck lunch.")
-                            inventory["5 buck lunch"] = 1
-                            time.sleep(s)
-                            print("\x1b[5;33;40mHave a nice day!\x1b[0m")
-                            break
-                        else:
-                            print("\x1b[5;33;40mI'm sorry, but you don't have enough money.\x1b[0m")
-                            break
+                        buy("5bucklunch")
                     elif r == "2":
-                        print('\x1b[1;37;40m' + "Can I have your friendship?" + '\x1b[0m')
+                        print("Can I have your friendship?")
                         time.sleep(s)
                         k=random.randint(1,4)
                         if "self confidence" in inventory:
@@ -388,11 +377,11 @@ def talkto(character):
                         else:
                             print("\x1b[5;33;40mSure; working here is pretty boring.\x1b[0m")
                             time.sleep(s)
-                            print("Shane is now your friend!")
+                            print("\x1b[1;37;40mShane is now your friend!\x1b[0m")
                             friends.append(shane)
                             break
                     elif r == "3":
-                        print("\x1b[1;37;40mNothing.\x1b[0m")
+                        print("Nothing.")
                         time.sleep(s)
                         print("\x1b[5;33;40mOkay, have a nice day!\x1b[0m")
                         break
@@ -411,24 +400,24 @@ def talkto(character):
 
 >>> """)
                     if r == "1":
-                        print("\x1b[1;37;40mJust chilling wbu.\x1b[0m")
+                        print("Just chilling wbu.")
                         time.sleep(s)
                         print("\x1b[0;30;47mSweeet.\x1b[0m")
                         time.sleep(s)
                         print("\x1b[0;30;47mTake my number if you wanna chill outside of Uber rides.\x1b[0m")
                         time.sleep(s)
-                        print("Jeremy is now your friend!")
+                        print("\x1b[1;37;40mJeremy is now your friend!\x1b[0m")
                         friends.append(jeremy)
                         break
                     elif r == "2":
-                        print("\x1b[1;37;40mI'm tryna make friends.\x1b[0m")
+                        print("I'm tryna make friends.")
                         time.sleep(s)
                         print("\x1b[0;30;47mSweeet.\x1b[0m")
                         time.sleep(s)
                         print("\x1b[0;30;47mGood luck with that.\x1b[0m")
                         break
                     elif r == "3":
-                        print("\x1b[1;37;40mNevermind.\x1b[0m")
+                        print("Nevermind.")
                         time.sleep(s)
                         print("\x1b[0;30;47mDon't waste my time.\x1b[0m")
                         break
@@ -438,44 +427,44 @@ def talkto(character):
         elif character == myself:
             if myself in friends:
                 time.sleep(s)
-                print('\x1b[1;37;40m' + "Stop talking to yourself and make some actual friends!" + '\x1b[0m')
+                print("Stop talking to yourself and make some actual friends!")
             else:
                 while True:
                     time.sleep(s)
-                    r = input("""\x1b[1;37;40mHey me!\x1b[0m
+                    r = input("""Hey me!
     1. You are an amazing person.
     2. Kill yourself.
     3. Goodbye.
 
 >>> """)
                     if r == "1":
-                        print("\x1b[1;37;40mYou are an amazing person.\x1b[0m")
+                        print("You are an amazing person.")
                         time.sleep(s)
-                        print("\x1b[1;37;40mThank you! You are wonderful too!\x1b[0m")
+                        print("Thank you! You are wonderful too!")
                         time.sleep(s)
-                        print("you now have self confidence!")
+                        print("\x1b[1;37;40myou now have self confidence!\x1b[0m")
                         inventory["self confidence"] = 1
                         friends.append(myself)
                         time.sleep(s)
-                        print("you now will pass all speech checks.")
+                        print("\x1b[1;37;40myou now will pass all speech checks.\x1b[0m")
                         break
                     elif r == "2":
-                        print("\x1b[1;37;40mKill yourself.\x1b[0m")
+                        print("Kill yourself.")
                         time.sleep(s)
-                        print("\x1b[1;37;40m...\x1b[0m")
+                        print("...")
                         time.sleep(s)
-                        print("\x1b[1;37;40mOkay.\x1b[0m")
+                        print("Okay.")
                         time.sleep(s)
-                        print("you now have major depression.")
+                        print("\x1b[1;37;40myou now have major depression.\x1b[0m")
                         heart.append("major depression")
                         break
                     elif r == "3":
-                        print("\x1b[1;37;40mGoodbye.\x1b[0m")
+                        print("Goodbye.")
                         time.sleep(s)
-                        print("\x1b[1;37;40mBye!\x1b[0m")
+                        print("Bye!")
                         break
                     else:
-                        print("\x1b[1;37;40mWhat am I even saying?\x1b[0m")
+                        print("What am I even saying?")
         #begins Colette's speech tree
         elif character == colette:
             if colette in friends:
