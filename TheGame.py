@@ -824,36 +824,36 @@ def talkto(character):
 
 >>> """)
                     if r == "1":
-                        print('\x1b[1;37;40m' + "Yeah I got the number right here." + '\x1b[0m')
+                        print("Yeah I got the number right here.")
                         time.sleep(s)
                         if paul in friends:
                             print("\x1b[5;31;40mOh my god, thank you so much!\x1b[0m")
                             time.sleep(s)
                             print("\x1b[5;31;40mHere's my number.\x1b[0m")
                             time.sleep(s)
-                            print("Abby is now your friend!")
+                            print("\x1b[1;37;40mAbby is now your friend!\x1b[0m")
                             friends.append(abby)
                             acquaintances.remove(abby)
                             break
                         else:
                             while True:
-                                r = input("""You obviously don't have Paul's number. What do you say?
+                                r = input("""\x1b[1;37;40mYou obviously don't have Paul's number. What do you say?\x1b[0m
     1. Haha, just kidding!
     \x1b[1;31;40m2. His number is...(give a fake number)\x1b[0m
 
 >>> """)
                                 if r == "1":
-                                    print('\x1b[1;37;40m' + "Haha, just kidding!" + '\x1b[0m')
+                                    print("Haha, just kidding!")
                                     time.sleep(s)
                                     print("\x1b[5;31;40mThat's not a funny joke...\x1b[0m")
                                     break
                                 elif r == "2":
-                                    print("you think of a random phone number off the top of your head and tell her.")
+                                    print("\x1b[1;37;40myou think of a random phone number off the top of your head and tell her.\x1b[0m")
                                     time.sleep(s)
                                     n=random.randint(100,999)
                                     m=random.randint(100,999)
                                     l=random.randint(1000,9999)
-                                    print(f"\x1b[1;31;40m2. His number is ({n}) {m}-{l}.\x1b[0m")
+                                    print(f"His number is ({n}) {m}-{l}.")
                                     time.sleep(s)
                                     k=random.randint(1,4)
                                     if "self confidence" in inventory:
@@ -863,9 +863,9 @@ def talkto(character):
                                         time.sleep(s)
                                         print("\x1b[5;31;40mHere's my number.\x1b[0m")
                                         time.sleep(s)
-                                        print("she actually believed you.")
+                                        print("\x1b[1;37;40mshe actually believed you.\x1b[0m")
                                         time.sleep(s)
-                                        print("Abby is now your friend!")
+                                        print("\x1b[1;37;40mAbby is now your friend!\x1b[0m")
                                         friends.append(abby)
                                         acquaintances.remove(abby)
                                         break
@@ -876,7 +876,7 @@ def talkto(character):
                                         break
                             break
                     elif r == "2":
-                        print('\x1b[1;37;40m' + "Not yet." + '\x1b[0m')
+                        print("Not yet.")
                         time.sleep(s)
                         print("\x1b[5;31;40mCome back to me when you do.\x1b[0m")
                         break
