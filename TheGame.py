@@ -222,19 +222,6 @@ def observe():
         print("The only person inside is a girl at the \x1b[4;37;40mcash register\x1b[0m.")
     time.sleep(s)
 
-def win():
-    print("\x1b[1;37;40mnice job! you've become friends with everyone in the game!\x1b[0m")
-    time.sleep(s)
-    print("\x1b[1;37;40myou can now call yourself an expert at making friends,\x1b[0m")
-    time.sleep(s)
-    print("\x1b[1;37;40mcertified by this friendship simulator!\x1b[0m")
-    while True:
-        a = input(">>> ")
-        if a == "help":
-            print("\x1b[1;37;40myou've won!\x1b[0m")
-        else:
-            print("\x1b[1;37;40myou've won!\x1b[0m")
-
 #will be called when the player is depressed
 def dead():
     while "major depression" in heart:
@@ -1259,11 +1246,8 @@ if colette in enemies:
 #the most important loop, this is what will prompt the player for what command to input
 while True:
     time.sleep(s)
-    #checks to see if you acquired all 7 friends in the game
-    if len(friends) == 7:
-        win()
     #checks to see if you insulted yourself, if you do, stops options from coming up
-    elif "major depression" in heart:
+    if "major depression" in heart:
         print("\x1b[1;37;40mwell, you didn't kill yourself,\x1b[0m")
         time.sleep(s)
         print("\x1b[1;37;40mbut now you're too sad & insecure to talk to anyone.\x1b[0m")
