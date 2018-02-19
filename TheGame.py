@@ -792,11 +792,11 @@ def talkto(character):
                         elif r == "5":
                             print("How can I date one of the characters?")
                             time.sleep(s)
-                            print("\x1b[1;37;40msorry to disappoint, but this is actually a friendship simulator.\x1b[0m")
+                            print("\x1b[1;37;40mfirst, you'll need to befriend them in order to get their number.\x1b[0m")
                             time.sleep(1)
-                            print("\x1b[1;37;40mwe're keeping this game e for everyone.\x1b[0m")
+                            print("\x1b[1;37;40mafterwards, you can call them to ask them out!\x1b[0m")
                             time.sleep(1)
-                            print("\x1b[1;37;40mif you'd like to date, try to do so in real life.\x1b[0m")
+                            print("\x1b[1;37;40mjust say \x1b[0m\x1b[3;37;40mcall [name]\x1b[0m\x1b[1;37;40m.\x1b[0m")
                         elif r == "6":
                             print("That's all.")
                             time.sleep(s)
@@ -1129,9 +1129,9 @@ print('\x1b[5;35;40m' + "Hi! Welcome to the dating simulator!" + '\x1b[0m')
 #the purple italized text is set for Colette's dialogue; right now this is an automatic encounter to get the player introduced to someone
 time.sleep(s)
 #makes sure the text doesn't pop in all at once, giving the player a chance to read everything
-print('\x1b[5;35;40m' + "Well, it's more like a friendship simulator because you won't really be dating much." + '\x1b[0m')
+print('\x1b[5;35;40m' + "Go on dates with an interesting cast of characters!" + '\x1b[0m')
 time.sleep(s)
-print('\x1b[5;35;40m' + "But there'll be a lot of people for you to meet and befriend!" + '\x1b[0m')
+print('\x1b[5;35;40m' + "But before you can do that, you'll need to befriend them first." + '\x1b[0m')
 time.sleep(s)
 print('\x1b[5;35;40m' + "I'm the tutorial lady, and I'll be teaching you the basics of making friends!" + '\x1b[0m')
 time.sleep(s)
@@ -1219,7 +1219,7 @@ while True:
     for x in greetings:
         if a == f"{x} colette":
             talkto(colette)
-    if colette not in acquaintances:
+    if colette in friends or colette in enemies:
         break
 if colette in enemies:
     time.sleep(s)
